@@ -36,7 +36,7 @@ def upload():
     if err:
         return err
 
-    access = json.loads(access)
+    access = json.loads(access)  # json string ko python obj me convert karega
 
     if access["admin"]:
         if len(request.files) > 1 or len(request.files) < 1:
@@ -63,7 +63,7 @@ def download():
     access = json.loads(access)
 
     if access["admin"]:
-        fid_string = request.args.get("fid")
+        fid_string = request.args.get("fid")   
 
         if not fid_string:
             return "fid is required", 400
